@@ -6,9 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "next build && aws s3 sync out s3://frontend-bucket-a88a1bd --delete && aws cloudfront create-invalidation --distribution-id E2QR8W927C8UMB --paths \"/*\""
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^6.13.2",
+    "aws-amplify": "^6.15.9",
+    "framer-motion": "^12.23.26",
     "next": "16.0.8",
     "react": "19.2.1",
     "react-dom": "19.2.1"
